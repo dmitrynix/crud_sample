@@ -1,16 +1,28 @@
 require 'spec_helper'
 
 describe AuthorsController do
-  it 'should create a new author' do
-    visit '/authors'
+  context 'create a author' do
+    it 'when is valid' do
+      visit '/authors'
 
-    click_link 'New'
+      click_link 'New'
 
-    fill_in 'Name', :with => 'Author1'
+      fill_in 'Name', :with => 'Author1'
 
-    click_button 'Create Author'
+      click_button 'Create Author'
 
-    expect(page).to have_content 'Author1'
+      expect(page).to have_content 'Name: Author1'
+    end
+
+    it 'when is invalid' do
+      visit '/authors'
+
+      click_link 'New'
+
+      click_button 'Create Author'
+
+      expect(page).to have_link 'Try again'
+    end
   end
 
   it 'should create a new author' do
