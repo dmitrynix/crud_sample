@@ -1,0 +1,15 @@
+<p>
+  <%= link_to t('actions.new'), [:new, controller_name.singularize] %>
+</p>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th></th>
+  </tr>
+  <% @objects.each do |object| %>
+    <tr>
+      <td><%= link_to object, [:edit, object] %></td>
+    </tr>
+  <% end %>
+</table>
