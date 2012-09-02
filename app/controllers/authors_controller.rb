@@ -1,0 +1,2 @@
+class AuthorsController < CrudController
+end
